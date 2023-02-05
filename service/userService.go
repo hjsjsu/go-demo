@@ -52,16 +52,17 @@ func AddUserService(res http.ResponseWriter, req *http.Request) {
 }
 
 func RemoveUserService(res http.ResponseWriter, req *http.Request) {
-	if req.Method != "POST" {
-		_, err := res.Write([]byte("不支持的方法"))
-		if err != nil {
-			return
-		}
-	}
-	id := req.URL.Query().Get("id")
 	var result bool
 	var message string
-	var code int = 200
+	var code = 200
+	if req.Method != "POST" {
+		code = 500
+		result = false
+		message = "不支持的方法"
+		res.Write(utils.RToJson(entity.InitR(code, result, message)))
+		return
+	}
+	id := req.URL.Query().Get("id")
 	if len(id) > 0 {
 		idInt, _ := strconv.Atoi(id)
 		num := user.RemoveUser(idInt)
