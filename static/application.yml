@@ -1,0 +1,4 @@
+mysql:
+  user: root
+  password: 123456
+  url: mysql://127.0.0.1:3306?test
