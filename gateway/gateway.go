@@ -18,6 +18,6 @@ func Gateway(w http.ResponseWriter, req *http.Request) {
 
 	w.Header().Add("Access-Control-Allow-Origin", "*")
 	w.Header().Add("Access-Control-Allow-Methods", "GET,POST")
-	w.Header().Add("Content-Type", "application/json")
+	w.Header().Add("Content-Type", "application/json;charset:utf-8")
 	w.WriteHeader(200)
 }
