@@ -1,10 +1,12 @@
 package entity
 
 type User struct {
-	Id   int    `json:"id"`
-	Name string `json:"name"`
-	Sex  int    `json:"sex"`
-	Url  string `json:"url"`
+	Id       int    `json:"id"`
+	Name     string `json:"name"`
+	Sex      int    `json:"sex"`
+	Password string `json:"password"`
+	Age      int    `json:"age"`
+	Url      string `json:"url"`
 }
 
 //func (u User) GetId() int {

@@ -16,10 +16,7 @@ func GetUsers() ([]*entity.User, error) {
 	}
 	for rows.Next() {
 		user := new(entity.User)
-		e = rows.Scan(&user.Id, &user.Name, &user.Sex, &user.Url)
-		if e != nil {
-			return nil, e
-		}
+		e = rows.Scan(&user.Id, &user.Name, &user.Sex, &user.Url, &user.Password, &user.Age)
 		users = append(users, user)
 	}
 	defer func(rows *sql2.Rows) {
